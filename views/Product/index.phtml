@@ -1,0 +1,35 @@
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Products</li>
+    </ol>
+</nav>
+<div class="container-fluid">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Product Name</th>
+                    <th>Code</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if (!empty($data['products'])) {
+                    foreach ($data['products'] as $product) {
+                        ?>
+                        <tr>
+                            <td><?= $product->id ?></td>
+                            <td><?= $product->name ?></td>
+                            <td><?= $product->code ?></td>
+                            <td><?= $product->price ?></td>
+                            <td><a href="/product/edit?id=<?= $product->id ?>">Edit</a></td>
+                        </tr>
+                        <?php
+                    }
+                }
+                ?>
+        </table>
+    </div>
